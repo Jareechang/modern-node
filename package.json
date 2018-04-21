@@ -1,0 +1,11 @@
+{
+  "name": "node-unit-test",
+  "version": "1.0.0",
+  "main": "yes",
+  "repository": "git@github.com:Jareechang/node-unit-tests.git",
+  "author": "Jerry",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
