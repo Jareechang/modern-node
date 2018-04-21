@@ -12,30 +12,31 @@ function isTestEnvironment() {
     return NODE_ENV == 'TEST';
 }
 
-app.use(bodyParser.json());
-
-app.get('/users', (req, res) => {
-    res.status(STATUS.SUCCESS);
-    res.jsonp(users);
-});
-
-app.get('/google', (req, res) => {
-    res.status(STATUS.REDIRECT);
-    res.redirect(redirect.url);
-});
-
-app.post('/login', (req, res) => {
-    const params = req.params;
-    res.jsonp({
-        isSuccess: true
-    });
-});
-
 function registerApp(port) {
     if (!port) throw new Error('port is required to register Express App');
     if (!isTestEnvironment()) {
         app.listen(port, _ => console.log(`listening on port ${port}...`));
     }
+
+    app.use(bodyParser.json());
+
+    app.get('/users', (req, res) => {
+        res.status(STATUS.SUCCESS);
+        res.jsonp(users);
+    });
+
+    app.get('/google', (req, res) => {
+        res.status(STATUS.REDIRECT);
+        res.redirect(redirect.url);
+    });
+
+    app.post('/login', (req, res) => {
+        const params = req.params;
+        res.jsonp({
+            isSuccess: true
+        });
+    });
+
     return app;
 }
 
