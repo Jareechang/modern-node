@@ -16,10 +16,18 @@ async function requestJSON(url) {
 
 describe('Express App', () => {
     describe('/users', () => {
-        it('should respond successfully with the users', async() => {
+        it('should respond successfully with the users [status: 200]', async() => {
             const res = await requestJSON('/users');
             expect(res.status).toEqual(200);
             expect(res.body).toEqual(api.users);
+        });
+    });
+
+    describe('/google', () => {
+        it('should respond with a redirect to google [status: 302]', async() => {
+            const res = await requestJSON('/google');
+            expect(res.status).toEqual(302);
+            expect(res.header.location).toEqual(api.redirect.url);
         });
     });
 });

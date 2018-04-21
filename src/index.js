@@ -22,7 +22,7 @@ function registerApp(port) {
 
     app.get('/users', (req, res) => {
         res.status(STATUS.SUCCESS);
-        res.jsonp(users);
+        res.json(users);
     });
 
     app.get('/google', (req, res) => {
@@ -32,7 +32,7 @@ function registerApp(port) {
 
     app.post('/login', (req, res) => {
         const params = req.params;
-        res.jsonp({
+        res.json({
             isSuccess: true
         });
     });
