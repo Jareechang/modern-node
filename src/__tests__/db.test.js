@@ -23,7 +23,6 @@ describe('DatabaseInMemory', () => {
         });
 
         it('should add unique id into list when saved', () => {
-
             const user = {
                 [ID_KEY]: 'test_id_1',
                 name: 'Tom',
@@ -35,7 +34,6 @@ describe('DatabaseInMemory', () => {
         });
 
         it('should throw an error when object does not contain an unique ID', () => {
-
             const user = {
                 name: 'Tom',
                 email: 'Tom@world.com',
