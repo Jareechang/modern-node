@@ -1,3 +1,3 @@
 module.exports = {
-    url: 'http://www.google.com'
+  url: 'http://www.google.com'
 };
