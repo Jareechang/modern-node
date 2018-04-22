@@ -17,6 +17,8 @@ function getRollUpConfig(input, output){
       babel({exclude: babelExclude})
     ],
     external: [
+      'express',
+      'body-parser',
       'supertest',
       'window-or-global'
     ]

@@ -1,6 +1,6 @@
 import request from 'supertest';
 import registerApp from '../index';
-import api from '../api/index';
+import {users, redirect} from '../api';
 
 let app = null;
 const PORT = 3333;
@@ -19,7 +19,7 @@ describe('Express App', () => {
     it('should respond successfully with the users [status: 200]', async() => {
       const res = await requestJSON('/users');
       expect(res.status).toEqual(200);
-      expect(res.body).toEqual(api.users);
+      expect(res.body).toEqual(users);
     });
   });
 
@@ -27,7 +27,7 @@ describe('Express App', () => {
     it('should respond with a redirect to google [status: 302]', async() => {
       const res = await requestJSON('/google');
       expect(res.status).toEqual(302);
-      expect(res.header.location).toEqual(api.redirect.url);
+      expect(res.header.location).toEqual(redirect.url);
     });
   });
 });

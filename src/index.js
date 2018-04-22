@@ -1,7 +1,7 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const users = require('./api/users');
-const redirect = require('./api/redirect');
+import express from 'express';
+import bodyParser from 'body-parser';
+import users from './api/users';
+import redirect from './api/redirect';
 
 const app = express();
 const PORT = 5000;

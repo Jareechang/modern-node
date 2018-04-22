@@ -6,9 +6,10 @@
   "author": "Jerry",
   "license": "MIT",
   "scripts": {
+    "start": "yarn run build && node ./dist",
     "eslint": "eslint ./src/",
-    "build": "rollup -c",
-    "test": "NODE_ENV=TEST ./node_modules/.bin/jest",
+    "build": "yarn run test && BABEL_ENV=dev rollup -c",
+    "test": "NODE_ENV=TEST BABEL_ENV=test./node_modules/.bin/jest",
     "test:watch": "NODE_ENV=TEST ./node_modules/.bin/jest --watch"
   },
   "dependencies": {

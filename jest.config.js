@@ -6,5 +6,5 @@ module.exports = {
     verbose: true,
     roots: ['src'],
     coveragePathIgnorePatterns: ignorePatterns,
-    transformIgnorePatterns: ignorePatterns 
+    transformIgnorePatterns: ignorePatterns
 };
