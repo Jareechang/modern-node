@@ -1,6 +1,6 @@
 import request from 'supertest';
-import registerApp from '../';
-import api from '../api';
+import registerApp from '../index';
+import api from '../api/index';
 
 let app = null;
 const PORT = 3333;

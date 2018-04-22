@@ -1,5 +1,5 @@
-import { databaseInMemory, ID_KEY } from '../db';
-import Errors from '../db/errors';
+import { databaseInMemory, ID_KEY } from '../db/index';
+import Errors from '../db/errors/index';
 
 afterEach(() => {
   databaseInMemory.clear();

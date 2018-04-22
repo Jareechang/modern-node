@@ -43,4 +43,4 @@ if (!isTestEnvironment()) {
   registerApp(PORT);
 }
 
-module.exports = registerApp;
+export default registerApp;

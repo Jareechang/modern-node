@@ -5,7 +5,7 @@
  * */
 
 import root from 'window-or-global';
-import Errors from './errors';
+import Errors from './errors/index';
 
 const ID_KEY = '__id';
 const storage = []; // Temporarily use simple array...
@@ -49,11 +49,12 @@ class DatabaseInMemory {
   }
 }
 
+const databaseInMemory = new DatabaseInMemory(storage);
 if (!root.__database_in_memory__) {
-  root.__database_in_memory__ = new DatabaseInMemory(storage);
+  root.__database_in_memory__ = databaseInMemory;
 }
 
-module.exports = {
-  databaseInMemory: root.__database_in_memory__,
+export {
+  databaseInMemory,
   ID_KEY
 };
