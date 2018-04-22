@@ -8,11 +8,6 @@
       "jest": true
     },
 
-    "ecmaFeatures": {
-      "modules": true,
-      "jsx": true
-    },
-
     "globals": {
       "__dirname": false,
       "require": false,
