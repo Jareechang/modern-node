@@ -1,4 +1,3 @@
-import path from 'path';
 import glob from 'glob';
 import babel from 'rollup-plugin-babel';
 import eslint from 'rollup-plugin-eslint';
@@ -13,27 +12,34 @@ function getRollUpConfig(input, output){
   const config = {
     input,
     output,
-    exclude: path.resolve('src/__tests_/**'),
-    format: 'cjs',
     plugins: [
-      eslint({ exclude: eslintExclude }),
-      babel({ exclude: babelExclude })
+      eslint({exclude: eslintExclude}),
+      babel({exclude: babelExclude})
+    ],
+    external: [
+      'supertest',
+      'window-or-global'
     ]
   };
 
   return config;
 }
 
-const files = glob.sync(SRC_FOLDER, { nodir: true });
+function ignoreTestFiles(filePath) {
+  const testRegex = new RegExp('.*?test.*?');
+  return !testRegex.test(filePath);
+}
 
+const files = glob.sync(SRC_FOLDER, {nodir: true});
+const filteredFiles = files.filter(ignoreTestFiles);
 /* Map all files in src/ to dist/
  *
  *  currently not supported by rollup
  *
  *  */
-const config = files.map(file => getRollUpConfig(
-  file,
-  {file: file.replace('src', 'dist')}
-));
+const config = (
+  filteredFiles
+    .map(file => getRollUpConfig(file, {file: file.replace('src', 'dist'), format: 'cjs'}))
+);
 
 export default config;
