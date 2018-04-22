@@ -1,6 +1,6 @@
-# Node unit tests 
+# Modern Node 
 
-Creating a basic prototype to explore **supertest** using jest runner as an unit test option.
+Create a basic App to test out latest libraries
 
 **Technologies**
 - Express
